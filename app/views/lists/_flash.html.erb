@@ -1,8 +1,11 @@
-<br/>
-<% flash.each do |name,msg| %>
-    <div class="alert alert-warning alert-dismissible">
-<button type="button" class="btn-close" data-dismiss="alert">
-</button>
-<%=content_tag(:div, msg) %>
-</div>
-<%end%>
+<br>
+<% flash.each do |key, value| %>
+ <% unless key.to_s == 'timeout' %>
+  <div
+  class="alert alert-warning <%= key %>">
+  <a href="#" data-dismiss="alert" class="close">X</a>
+  <%=value%>
+  </div>
+
+<% end %>
+<%end %>
